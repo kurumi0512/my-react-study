@@ -16,7 +16,6 @@ id | name | score | pass
 */
 
 function App() {
-    // 物件陣列
     const students = [
         {id:1, name:'小明', score:55},
         {id:2, name:'小美', score:78},
@@ -24,43 +23,40 @@ function App() {
         {id:4, name:'阿強', score:40},
     ];
 
-    //計算平均分數
-    const AverageScore = students.reduce((score, students) => sum +product.price*product.qty, 0);
-    return (
-       <>
-        <h1>學生列表</h1>
-       <table border= "1">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Score</th>
-                    <th>Pass</th>
-                </tr>
-            </thead>
-            <tbody>
-                {
-                    students.map((students)=> {
-                        return (
-                            <tr key={students.id}>
-                                <td>{students.id}</td>
-                                <td>{students.name}</td>
-                                <td align="right">{students.score}</td>
-                                <td align="right">{students.pass}</td>
-                            </tr>
-                        );
-                    })
-                }
+    // 計算平均
+    const avgScore = students.reduce((sum, student) => sum + student.score, 0) / students.length;
 
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td colSpan="4" align="right">全班平均</td>
-                    <td align="right">{AverageScore}</td>
-                    <td></td>
-                </tr>
-            </tfoot>
-        </table>
+    return (
+        <>
+            <h1>學生成績表</h1>
+            <table border="1">
+                <thead>
+                    <tr><th>ID</th><th>姓名</th><th>分數</th><th>及格</th></tr>
+                </thead>
+                <tbody>
+                    {
+                        students.map((student => {
+                            const isPass = student.score >= 60;
+                            return (
+                                <tr key={student.id}>
+                                    <td>{student.id}</td>
+                                    <td>{student.name}</td>
+                                    <td align="right">{student.score}</td>
+                                    <td>{isPass ? "V" : "X"}</td>
+                                </tr>
+                            )
+                        }))
+                    }
+
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="2" align="right">平均</td>
+                        <td align="right">{avgScore.toFixed(1)}</td>
+                        <td></td>
+                    </tr>
+                </tfoot>
+            </table>
         </>
     )
 }

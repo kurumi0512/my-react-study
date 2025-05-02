@@ -27,4 +27,4 @@ function App(){
     )
 }
 
-export default App;
+export default App; //匯出,main才可以使用
