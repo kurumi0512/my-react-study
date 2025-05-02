@@ -5,12 +5,15 @@ function App(){
     const items1 = ['Apple','Banana','Orange']
     //利用JSX來渲染陣列
     //key是幫助React來識別每個元素的唯一性
+    //如果item1有新增東西的話要自己手寫
     const items2 = [
         <li key='1'>Apple</li>,
         <li key='2'>Banana</li>,
         <li key='3'>Orange</li>
     ]
-    //使用map來渲染items1
+    //使用map來渲染items1,map是遍立每一個item:Apple,index:0...
+    //第一筆會印出0 0 Apple
+    //如果item1修正的話items3會自己修改
     const items3 = items1.map((item, index) =>(
         <li key={index}>{index}-{item}</li>    
     ))

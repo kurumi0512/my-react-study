@@ -1,6 +1,6 @@
-//事件處理
+// 事件處理
 
-function App(){
+function App() {
 
     const handleClick2 = function() {
         alert('OK2');
@@ -11,11 +11,11 @@ function App(){
         console.log(e);
     }
 
-    return(
+    return (
         <>
-            <button onClick={function(){alart('ok');}}>我是按鈕1</button>
-            <button onClick={handleClick2}>我是按鈕2</button>
-            <button onClick={handleClick3}>我是按鈕3</button>
+            <button onClick={function(){alert('OK1');}}>我是按鈕 1</button>
+            <button onClick={handleClick2}>我是按鈕 2</button>
+            <button onClick={handleClick3}>我是按鈕 3</button>
         </>
     )
 }

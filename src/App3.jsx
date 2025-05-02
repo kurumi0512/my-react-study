@@ -16,7 +16,7 @@ const World = () => {
     )
 }
 
-//父組件
+//父組件,這邊的Hello和World是Hello()function的名字
 function App() {
     return (
         <>
