@@ -12,10 +12,12 @@ function App() {
     const filterItems = items.filter((item) => {
         return item.price > 25;
     })
+    item 是你自己命名的參數名稱，代表 items 陣列中的每一個元素。你完全可以改成其他名稱，只要語意清楚、在函式內一致就好。
     */
     const filterItems = items.filter((item) => item.price > 25)
 
-    // 陣列 map
+    // 陣列 map,React 要求每個列表元素要有 key 屬性
+    //index 會由 .map() 自動生成，它代表目前元素在陣列中的「索引位置」（從 0 開始）。
     const items2 = filterItems.map((item, index) => (
                 <div key={item.id}>
                     index={index}, id={item.id}, name={item.name}, price={item.price}
@@ -28,6 +30,8 @@ function App() {
             <hr />
             {
                 filterItems.map((item, index) => (
+                    //把 filterItems（一個陣列）中的每一筆資料都取出來，命名為 item
+                    //同時取得它的陣列位置，命名為 index
                     <div key={item.id}>
                         index={index}, id={item.id}, name={item.name}, price={item.price}
                     </div>
