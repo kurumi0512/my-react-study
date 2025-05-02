@@ -17,7 +17,7 @@ function App() {
     ];
 
     //計算價格總和,reduce是歸納,sum代表前一次累計的紀錄,會做4次,sum+product.price第一次是40,第二次是40+120
-    const totalPrice = products.reduce((sum, product,qty) => sum +(product.price*product.qty), 0);
+    const totalPrice = products.reduce((sum, product) => sum +product.price*product.qty, 0);
     return (
        <>
         <h1>商品列表</h1>
@@ -34,16 +34,19 @@ function App() {
             </thead>
             <tbody>
                 {
-                    products.map((product)=>(
-                        <tr key={product.id}>
-                            <td>{product.id}</td>
-                            <td>{product.name}</td>
-                            <td align="right">{product.price}</td>
-                            <td align="right">{product.qty}</td>
-                            <td align="right">{product.price * product.qty}</td>
-                            <td>{product.category}</td>
-                        </tr>
-                    ))
+                    products.map((product)=> {
+                        const subtotal = product.price * product.qty;
+                        return (
+                            <tr key={product.id}>
+                                <td>{product.id}</td>
+                                <td>{product.name}</td>
+                                <td align="right">{product.price}</td>
+                                <td align="right">{product.qty}</td>
+                                <td align="right">{subtotal}</td>
+                                <td>{product.category}</td>
+                            </tr>
+                        );
+                    })
                 }
 
             </tbody>
