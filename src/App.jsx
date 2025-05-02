@@ -3,3 +3,4 @@ function App() {
 }
 
 export default App;
+//「匯出（export）」，讓其他地方可以使用它
