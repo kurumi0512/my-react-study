@@ -1,4 +1,4 @@
-function TodoItem({todos, toggleCompletion, handleTodoDelete}){
+function TodoItem({todo, toggleCompletion, handleTodoDelete}){
     return(
         <li key={todo.id} 
             style={{textDecoration: todo.completed ? 'line-through': 'none'}}> {/* 如果todo完成就文字畫線 */}
