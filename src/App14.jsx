@@ -2,7 +2,8 @@ import { useState } from "react";
 
 function App() {
     const [count, setCount] = useState(0);   //變更這個count的方法是setCount,讓變數count預設值初始值是0
-    const [count2, setCount2] = useState(0);
+    const [count2, setCount2] = useState(0); //const [狀態變數, 設定函式] = useState(初始值);
+
 
     function handleClick() {
         setCount( count+1 ); //變更count內容並且自動渲染

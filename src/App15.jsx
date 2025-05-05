@@ -2,10 +2,12 @@
 import { useState } from "react"
 
 function App() {
-    const [inputMessage, setInputMessage ] = useState('') //定義變數的同時也把set定義好
+    //定義變數的同時也把set定義好 const [狀態變數, 設定函式] = useState(初始值);
     // 改變inputMessage叫做setInputMessage,預設值是空白
-    const [messages, setMessages ] = useState([]) //改變Messages叫做setMessages,預設內容是空陣列
-
+    const [inputMessage, setInputMessage ] = useState('') 
+    //改變Messages叫做setMessages,預設內容是空陣列
+    const [messages, setMessages ] = useState([]) 
+    
     const handleInputChange = (e) => {
         //輸入就是改變onchange
         //e是事件 event
@@ -30,11 +32,11 @@ function App() {
         <input type='text' value={inputMessage} onChange={handleInputChange} onKeyDown={handleKeyDown} /> 
         {/*value(呈現什麼內容){inputMessage}。但又希望不是空字串,所以要呼叫onchange的{handleInputChange}會在這個欄位做修正*/}
         <button onClick={handleAddMessage}>Send</button><p />
-        {messages} {/*將現在的messages.concat(inputMessage)。可以直接用...運算子*/}
+        {messages} {/*messages 是一個陣列，例如 ["你好", "早安", "加油"]，直接插入會變成這樣的文字。將現在的messages.concat(inputMessage)。可以直接用...運算子*/}
         <p/>
         <ul>
             {
-                messages.map((message, index) => (
+                messages.map((message, index) => ( //map是轉換的意思
                     <li key={index}>{index}: {message} </li>
                 ))
             }

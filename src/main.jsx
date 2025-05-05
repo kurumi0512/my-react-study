@@ -15,11 +15,12 @@ import App12 from "./App12.jsx";
 import App13 from "./App13.jsx";
 import App14 from "./App14.jsx";
 import App15 from "./App15.jsx";
-import TodoList4 from "./TodoList4.jsx";
+import TodoList2 from "./TodoList2.jsx";
+import Cart from "./Cart.jsx";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
-        <TodoList4 />
+        <TodoList2 />
     </React.StrictMode>
 );
