@@ -29,6 +29,8 @@ function App() {
     }
     //找出使用者點擊的那一筆 todo（id 相符的）
     //建立一個新的物件，內容跟原本的 todo 一樣，但把 completed 屬性的值取反
+    //用 展開運算子 建立一份新物件（React 不鼓勵直接修改原物件）。
+    //把原本 todo 所有屬性展開出來，再「覆蓋」completed 為相反的值：
     //:todo 如果不是要改的那筆 todo，就原封不動地保留。
 
     //使用者點一下 checkbox → 對應的 todo 的 completed 值會切換 → CSS 顯示會改變（例如加刪除線）。
@@ -50,6 +52,7 @@ function App() {
                 <button onClick={handleTodoAdd}>加入</button>
             </div>
             <ul>
+                {/*map是轉換*/}
                 {
                     todos.map((todo) => (
                         <li key={todo.id} style={{textDecoration: todo.completed ? 'line-through': 'none'}}> {/* 如果todo完成就文字畫線 */}
